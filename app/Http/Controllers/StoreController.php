@@ -12,7 +12,8 @@ class StoreController extends Controller
     public function show(){
         return view('store',[
             // 'product_categories' => ProductCategory::all()
-            'products' => Product::with(['product_category'])->get()
+            //'products' => Product::with(['product_category'])->get()
+            'products' => Product::where('stock', '>', 0)->with(['product_category'])->get()
         ]);
     }
     
