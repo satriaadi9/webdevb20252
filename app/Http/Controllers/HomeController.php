@@ -10,7 +10,7 @@ class HomeController extends Controller
     //
     public function show(){
         return view('home', [
-            'product_category' => ProductCategory::with(['products'])->get()
+            'product_categories' => ProductCategory::with(['products'])->get()
         ]);
 
     }

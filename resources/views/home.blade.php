@@ -1,15 +1,17 @@
 @extends('base.base')
 @section('content')
-    <h1>Home Page</h1>
+    <h2>This is My Home Page</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
+      @foreach ($product_categories as $product_category)
+         <div class="col">
             <div class="card">
-                <div class="card-body">
-                    <div class="card-title">{{ $product_category->name }}</div>
-                    <div class="card-text">{{ $product_category->description }}</div>
-                    <div class="card-text">Total products: {{ $product_category->products->count() }}</div>
-                </div>
+               <div class="card-body">
+                  <h5 class="card-title"> {{ $product_category->name }}</h5>
+                  <p class="card-text"><i>{{ $product_category->description }}</i></p>
+                  <p class="card-text">Total Products: {{ $product_category->products->count() }}</p>
+               </div>
             </div>
-        </div>
-    </div>
+         </div>
+      @endforeach
+   </div>
 @endsection
